@@ -8,7 +8,7 @@ body{
 }
 
 #main{
-    width: 70%;
+    width: 50%;
     margin: auto;
     margin-top: 10px;
     margin-bottom: 10px;
@@ -16,10 +16,10 @@ body{
     border-style: solid;
     border-width: 2px;
     border-radius: 10px;
-    padding-left: 10px;
-    padding-right: 10px;
+    padding-left: 30px;
+    padding-right: 30px;
     padding-top: 30px;
-    padding-bottom: 30px;
+    padding-bottom: 50px;
 }
 
 #title{
@@ -46,7 +46,7 @@ body{
     max-width: 400px;
 }
 #number{
-    width: 40%;
+    width: 50%;
     max-width: 200px;
 }
 
@@ -59,15 +59,27 @@ fieldset{
     max-width: 200px;
 }
 
+#textarea{
+    max-width: 100%;
+}
+
 #button-div{
-    margin-top: 20px;
+    margin-top: 40px;
     display: flex;
     justify-content: center;
 }
 
+[type=radio]{
+    margin-right: 10px;
+}
+
+[type=checkbox]{
+    margin-right: 10px;
+}
+
 @media (min-width: 600px){
     #main{
-        padding-left: 50px;
-        padding-right: 50px;
+        padding-left: 60px;
+        padding-right: 60px;
     }
 }
