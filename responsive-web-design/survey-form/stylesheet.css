@@ -47,6 +47,7 @@ body{
 }
 
 #name, #email, #number, #dropdown, #textarea, #submit, #fieldset-1, #fieldset-2{
+    border-style: solid;
     border-radius: 5px;
 }
 
