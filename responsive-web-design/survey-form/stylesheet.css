@@ -1,0 +1,73 @@
+body{
+    font-family: 'Lexend', 'sans-serif', 'monospace';
+    background-image: linear-gradient(lightcyan,rgb(228, 181, 181));
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-size: 22px;
+}
+
+#main{
+    width: 70%;
+    margin: auto;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    background-color: rgb(250, 244, 244);
+    border-style: solid;
+    border-width: 2px;
+    border-radius: 10px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+#title{
+    margin: 0;
+    text-align: center;
+}
+
+.block-element{
+    display: block;
+}
+
+.full-size{
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.space-up{
+    margin-top: 10px;
+}
+
+#name, #email{
+    max-width: 400px;
+}
+#number{
+    width: 40%;
+    max-width: 200px;
+}
+
+fieldset{
+    max-width: 400px;
+}
+
+#submit{
+    width: 50%;
+    max-width: 200px;
+}
+
+#button-div{
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+@media (min-width: 600px){
+    #main{
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
