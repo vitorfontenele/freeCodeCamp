@@ -45,12 +45,17 @@ body{
 #name, #email{
     max-width: 400px;
 }
+
+#name, #email, #number, #dropdown, #textarea, #submit, #fieldset-1, #fieldset-2{
+    border-radius: 5px;
+}
+
 #number{
     width: 50%;
     max-width: 200px;
 }
 
-fieldset{
+#fieldset-1, #fieldset-2{
     max-width: 400px;
 }
 
