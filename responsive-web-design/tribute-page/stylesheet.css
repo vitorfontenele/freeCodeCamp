@@ -9,7 +9,7 @@ body{
 }
 
 .white-border{
-    border-color: white;
+    border-color: rgb(219, 240, 215);
     border-width: 5px;
     border-style: solid;
     border-radius: 10px;    
@@ -55,7 +55,7 @@ body{
 
 #image{
     width: 100%;
-    max-width: 924px;
+    max-width: 913px;
 }
 
 #img-caption{
