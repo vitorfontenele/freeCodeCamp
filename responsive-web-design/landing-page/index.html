@@ -4,10 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="normalize.css">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <title>Landing Page</title>
 </head>
 <body>
-    
+    <main>
+        <header id="header">
+            <img id="header-img" src="" alt="Company logo">
+            <nav id="nav-bar">
+                <ul>
+                    <li><a class="nav-link" href="#header"></a></li>
+                    <li><a class="nav-link" href="#video"></a></li>
+                    <li><a class="nav-link" href="#form"></a></li>
+                </ul>
+            </nav>
+        </header>
+        <video id="video" src="https://www.youtube.com/watch?v=jFfo23yIWac"></video>
+        <form id="form" action="https://www.freecodecamp.com/email-submit">
+            <input id="email" type="email" name="email" placeholder="emailadress@email.com" required>
+            <input id="submit" type="submit">
+        </form>
+    </main>
 </body>
 </html>
