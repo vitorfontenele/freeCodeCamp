@@ -36,11 +36,15 @@ body{
 #subtitle{
     font-size: 24px;
     padding: 10px;
+    background-color: rgb(0, 20, 0);
 }
 
 #img-div{
     margin-top: 15px;
     margin-bottom: 1px;
+    padding-top: 30px;
+    box-sizing: border-box;
+    background-color: rgb(0, 20, 0);
 }
 
 #figure{
