@@ -1,0 +1,127 @@
+body{
+    font-family: 'Exo','sans-serif','monospace';
+    font-size: 24px;
+}
+
+header{
+    background-color: navy;
+    padding-bottom: 0;
+    height: 3.33em;
+    box-sizing: border-box;
+    position: fixed;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+
+#header-img{
+    height: 3.33em;
+    margin-left: 4.17em;
+    margin-top: 0;
+    margin-bottom: 0;
+}
+
+.color-logo{
+    filter: brightness(0) invert(1);
+}
+
+#nav-bar{
+    /* background-color: blueviolet; */
+    font-size: 1.5em;
+    padding: 0;
+    margin: 0;
+    margin-right: 2em;
+    display: flex;
+    align-items: center;
+}
+
+#nav-bar ul{
+    /* background-color: black; */
+    padding: 0;
+
+}
+
+#nav-bar li{
+    display: inline-block;
+    margin-right: 1.5em;
+}
+
+.nav-link{
+    color: rgb(247, 247, 247);
+    text-decoration: none;
+    transition: color .5s ease-out;
+}
+
+.nav-link:hover{
+    color: rgb(255, 188, 188);
+}
+
+#presentation-div{
+    background-image: linear-gradient(rgb(111, 111, 223),white);
+    height: 32em;
+    box-sizing: border-box;
+    padding-top: 5em;
+    padding-left: 2em;
+    display: flex;
+}
+
+#presentation-text-article{
+    width: 60%;
+    padding-right: 2em;
+}
+
+#presentation-title{
+    font-size: 3.2em;
+}
+
+#presentation-subtitle{
+    font-size: 2.4em;
+    margin-top: .5em;
+}
+
+#presentation-image-article{
+    width: 40%;
+    display: flex;
+    justify-content: center;
+}
+
+#presentation-image-figure{
+    /* background-color: beige; */
+}
+
+#presentation-image{
+    height: 17em;
+    width: 17em;
+    border-radius: 50%;
+}
+
+#presentation-image-caption{
+    width: 17em;
+    text-align: center;   
+}
+
+#stack-div{
+    height: 20em;
+    background-color: rgb(122, 122, 185);
+    padding-top: 1em;
+    box-sizing: border-box;
+    text-align: center;
+}
+
+#stack-div p{
+    font-size: 2em;
+    color: aliceblue;
+}
+
+#stack-figures{
+    display: flex;
+    justify-content: center;
+}
+
+#python-logo, #html5-logo, #css-logo, #js-logo{
+    width: 8em;
+}
+
+#python-logo-caption, #html5-logo-caption, #css-logo-caption, #js-logo-caption{
+    text-align: center;
+}
