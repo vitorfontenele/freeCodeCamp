@@ -57,7 +57,8 @@ header{
 }
 
 #presentation-div{
-    background-image: linear-gradient(rgb(111, 111, 223),white);
+    background: linear-gradient(rgba(136, 136, 223, 0.9),rgba(255, 255, 255, 0.8)), url('tech-blue.jpg') no-repeat center center / cover;
+    /* background-image: linear-gradient(rgb(111, 111, 223),white); */
     height: 32em;
     box-sizing: border-box;
     padding-top: 5em;
@@ -93,9 +94,13 @@ header{
     height: 17em;
     width: 17em;
     border-radius: 50%;
+    border-style: solid;
+    border-width: 0.5em;
+    border-color: rgb(29, 29, 90);
 }
 
 #presentation-image-caption{
+    margin-top: 0.5em;
     width: 17em;
     text-align: center;   
 }
@@ -103,7 +108,7 @@ header{
 #stack-div{
     height: 20em;
     background-color: rgb(122, 122, 185);
-    padding-top: 1em;
+    padding-top: 0.75em;
     box-sizing: border-box;
     text-align: center;
 }
@@ -124,4 +129,51 @@ header{
 
 #python-logo-caption, #html5-logo-caption, #css-logo-caption, #js-logo-caption{
     text-align: center;
+}
+
+#video-article{
+    height: 28em;
+    padding-bottom: 2em;
+    padding-top: 0.75em;
+    box-sizing: border-box;
+    background-color: rgb(198, 205, 228);
+}
+
+#video-article p{
+    font-size: 2em;
+    color: rgb(12, 12, 12);
+    text-align: center;
+    margin-left: 0.5em;
+    margin-right: 0.5em;
+}
+
+#video-container{
+    display: flex;
+    justify-content: center;
+}
+
+#form-div{
+    background-color: rgb(0, 0, 53);
+    padding-top: 2em;
+    padding-bottom: 2em;
+}
+
+#form{
+    color: white;
+    text-align: center;
+}
+
+#fcc-logo-div{
+    display: flex;
+    justify-content: center;
+}
+
+#fcc-logo{
+    display: block;
+    width: 40em;
+}
+
+#email, #submit{
+    padding: 0.5em;
+    border-radius: 0.25em;
 }
