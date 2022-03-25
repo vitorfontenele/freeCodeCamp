@@ -4,7 +4,7 @@ body{
 }
 
 header{
-    background-color: navy;
+    background-color: rgb(0, 0, 53);
     padding-bottom: 0;
     height: 3.33em;
     box-sizing: border-box;
@@ -62,13 +62,12 @@ header{
     height: 32em;
     box-sizing: border-box;
     padding-top: 5em;
-    padding-left: 2em;
     display: flex;
 }
 
 #presentation-text-article{
     width: 60%;
-    padding-right: 2em;
+    padding-left: 2em;
 }
 
 #presentation-title{
@@ -106,16 +105,19 @@ header{
 }
 
 #stack-div{
-    height: 20em;
+    height: auto;
     background-color: rgb(122, 122, 185);
-    padding-top: 0.75em;
+    padding-top: 0.25em;
+    padding-bottom: 2em;
+    padding-left: 2em;
+    padding-right: 2em;
     box-sizing: border-box;
     text-align: center;
+    color: aliceblue;
 }
 
-#stack-div p{
-    font-size: 2em;
-    color: aliceblue;
+#stack-div h3{
+    font-size: 2.4em;
 }
 
 #stack-figures{
@@ -132,19 +134,19 @@ header{
 }
 
 #video-article{
-    height: 28em;
-    padding-bottom: 2em;
+    height: auto;
+    padding-bottom: 4em;
     padding-top: 0.75em;
+    padding-left: 2em;
+    padding-right: 2em;
     box-sizing: border-box;
     background-color: rgb(198, 205, 228);
 }
 
-#video-article p{
-    font-size: 2em;
+#video-article h3{
+    font-size: 2.4em;
     color: rgb(12, 12, 12);
     text-align: center;
-    margin-left: 0.5em;
-    margin-right: 0.5em;
 }
 
 #video-container{
@@ -154,8 +156,10 @@ header{
 
 #form-div{
     background-color: rgb(0, 0, 53);
-    padding-top: 2em;
-    padding-bottom: 2em;
+    padding-left: 2em;
+    padding-right: 2em;
+    padding-top: 4em;
+    padding-bottom: 4em;
 }
 
 #form{
@@ -170,10 +174,161 @@ header{
 
 #fcc-logo{
     display: block;
-    width: 40em;
+    width: 100%;
+    max-width: 30em;
+    height: auto;
 }
 
 #email, #submit{
     padding: 0.5em;
     border-radius: 0.25em;
+}
+
+/*
+@media (max-width: 1600px){
+    #header{
+        background-color: yellow;
+    }
+
+    #presentation-text-article{
+        width: 50%;
+    }
+
+    #presentation-image-article{
+        width: 50%;
+    }
+
+    #presentation-title{
+        font-size: 2.8em;
+    }
+
+    #presentation-subtitle{
+        font-size: 1.7em;
+    }
+}
+
+@media(max-width: 1360px){
+    #header{
+        background-color: black;
+    }
+
+    #presentation-image{
+        height: 18vw;
+        width: 18vw;
+    }
+
+    #presentation-div{
+        display: flex;
+        flex-direction: column;
+        height: 58vw;
+        padding-left: 2em;
+        padding-right: 2em;
+    }
+
+    #presentation-text-article{
+        width: 100%;
+    }
+
+    #presentation-image-article{
+        width: 100%;
+    }
+
+    #presentation-image-figure{
+        display: flex;
+        flex-direction: row;
+    }
+
+    #presentation-image-div{
+        display: flex;
+        justify-content: center;
+    }
+
+    #presentation-title{
+        font-size: 2em;
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    #presentation-subtitle{
+        font-size: 1.5em;
+    }
+
+    #stack-div h3{
+        font-size: 1.5em;
+    }
+}
+*/
+
+@media (min-width: 0px) and (max-width: 800px){
+    #presentation-title{
+        font-size: 2em;
+    }
+
+    #presentation-subtitle, #stack-div h3, #video-article h3{
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1600px){
+    #presentation-title{
+        font-size: 2.5em;    
+    }
+
+    #presentation-subtitle, #stack-div h3, #video-article h3{
+        font-size: 1.88em;
+    }
+}
+
+@media (max-width: 1600px){
+    #presentation-div{
+        display: flex;
+        flex-direction: column;
+        /* height: 52em; */
+        width: 100%;
+        height: auto;
+        padding-bottom: 1.5em; 
+    } 
+
+    #presentation-title{
+        /* font-size: 2em; */
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    #presentation-text-article{
+        width: auto;
+        padding-right: 2em;
+    }
+
+    #presentation-image-article{
+        width: 100%;
+    }
+
+    #presentation-image-div{
+        display: flex;
+        justify-content: center;
+    }
+
+    #presentation-image{
+        height: 10em;
+        width: 10em;
+    }
+   
+    #stack-div{
+        /* font-size: 1.5em; */
+        padding-top: 2em;
+    }
+
+    #stack-figures{
+        flex-wrap: wrap;
+    }
+
+    #video-article{
+        padding-top: 2em;
+    }
+
+    #form-div{
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
 }
