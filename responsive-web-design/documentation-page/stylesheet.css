@@ -1,0 +1,19 @@
+body{
+    font-family: 'Martel', 'sans-serif','monospace';
+    font-size: 18px;
+}
+
+#main-doc{
+    display: flex;
+}
+
+#navbar{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 30%;
+}
+
+#sections-container{
+    width: 70%;
+}

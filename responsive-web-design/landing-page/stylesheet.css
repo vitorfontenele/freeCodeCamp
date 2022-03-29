@@ -165,6 +165,7 @@ header{
 #form{
     color: white;
     text-align: center;
+    font-size: 1.25em;
 }
 
 #fcc-logo-div{
@@ -182,6 +183,111 @@ header{
 #email, #submit{
     padding: 0.5em;
     border-radius: 0.25em;
+}
+
+/* MEDIA QUERIES */
+
+@media (max-width: 700px){
+    #nav-bar{
+        font-size: 0.75em;
+    }
+
+    #header-img{
+        margin-left: 2em;
+        height: auto;
+        width: 2em;
+    }
+}
+
+
+@media (min-width: 700px) and (max-width: 1000px){
+    #nav-bar{
+        font-size: 1.25em;
+        margin-right: 0em;
+    }
+
+    #header-img{
+        margin-left: 2em;
+    }
+}
+
+
+@media (min-width: 0px) and (max-width: 800px){
+    #presentation-title{
+        font-size: 2em;
+    }
+
+    #presentation-subtitle, #stack-div h3, #video-article h3{
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 800px) and (max-width: 1600px){
+    #presentation-title{
+        font-size: 2.5em;    
+    }
+
+    #presentation-subtitle, #stack-div h3, #video-article h3{
+        font-size: 1.88em;
+    }
+}
+
+@media (max-width: 1600px){
+    #presentation-div{
+        display: flex;
+        flex-direction: column;
+        /* height: 52em; */
+        width: 100%;
+        height: auto;
+        padding-bottom: 1.5em; 
+    } 
+
+    #presentation-title{
+        /* font-size: 2em; */
+        margin-bottom: 0;
+        margin-top: 0;
+    }
+
+    #presentation-text-article{
+        width: auto;
+        padding-right: 2em;
+    }
+
+    #presentation-image-article{
+        width: 100%;
+    }
+
+    #presentation-image-div{
+        display: flex;
+        justify-content: center;
+    }
+
+    #presentation-image{
+        height: 10em;
+        width: 10em;
+    }
+   
+    #stack-div{
+        /* font-size: 1.5em; */
+        padding-top: 2em;
+    }
+
+    #stack-figures{
+        flex-wrap: wrap;
+    }
+
+    #video-article{
+        padding-top: 2em;
+    }
+
+    #form-div{
+        padding-top: 2em;
+        padding-bottom: 2em;
+    }
+
+    #form{
+        font-size: 1em;
+    }
 }
 
 /*
@@ -258,77 +364,3 @@ header{
     }
 }
 */
-
-@media (min-width: 0px) and (max-width: 800px){
-    #presentation-title{
-        font-size: 2em;
-    }
-
-    #presentation-subtitle, #stack-div h3, #video-article h3{
-        font-size: 1.5em;
-    }
-}
-
-@media (min-width: 800px) and (max-width: 1600px){
-    #presentation-title{
-        font-size: 2.5em;    
-    }
-
-    #presentation-subtitle, #stack-div h3, #video-article h3{
-        font-size: 1.88em;
-    }
-}
-
-@media (max-width: 1600px){
-    #presentation-div{
-        display: flex;
-        flex-direction: column;
-        /* height: 52em; */
-        width: 100%;
-        height: auto;
-        padding-bottom: 1.5em; 
-    } 
-
-    #presentation-title{
-        /* font-size: 2em; */
-        margin-bottom: 0;
-        margin-top: 0;
-    }
-
-    #presentation-text-article{
-        width: auto;
-        padding-right: 2em;
-    }
-
-    #presentation-image-article{
-        width: 100%;
-    }
-
-    #presentation-image-div{
-        display: flex;
-        justify-content: center;
-    }
-
-    #presentation-image{
-        height: 10em;
-        width: 10em;
-    }
-   
-    #stack-div{
-        /* font-size: 1.5em; */
-        padding-top: 2em;
-    }
-
-    #stack-figures{
-        flex-wrap: wrap;
-    }
-
-    #video-article{
-        padding-top: 2em;
-    }
-
-    #form-div{
-        padding-top: 2em;
-        padding-bottom: 2em;
-    }
-}
