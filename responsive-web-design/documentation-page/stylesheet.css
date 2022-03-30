@@ -1,19 +1,113 @@
 body{
     font-family: 'Martel', 'sans-serif','monospace';
-    font-size: 18px;
+    font-size: 16px;
 }
 
-#main-doc{
+#main-header{
+    position: fixed;
+    height: 4em;
+    top: 0;
+    width: 100vw;
+    background-image: linear-gradient(45deg, rgb(0, 0, 129), rgb(91, 91, 201), rgb(0, 0, 129));
+}
+
+#main-header-content{
+    height: 4em;
+    margin-left: 1em;
+    margin-right: 2em;
     display: flex;
+    justify-content: space-between;
+}
+
+h1, h2, h3{
+    margin: 0;
+    padding: 0;
+}
+
+h1{
+    font-size: 2em;
+    color: white;
+}
+
+#h1-container{
+    /* background-color: green; */
+    display: flex;
+    align-items: center;
+}
+
+#img-container{
+    /* background-color: purple; */
+    display: flex;
+    align-items: center;
+}
+
+#main-image{
+    height: 2em;
+    width: 2em;
+    filter: brightness(0) invert(1);
 }
 
 #navbar{
     position: fixed;
-    top: 0;
+    top: 4em;
     left: 0;
-    width: 30%;
+    background-color: rgb(230, 230, 230);
+    width: 200px;
+    height: calc(100vh - 4em);
+    box-sizing: border-box;
+    border-style: double;
+    border-top-width: 0px;
+    border-right-width: 2px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
 }
 
 #sections-container{
-    width: 70%;
+    margin-left: 200px;
+    margin-top: 4em;
+    padding-left: 1em;
+    padding-top: 1em;
+    padding-right: 1em;
+    padding-bottom: 1em;
+}
+
+#navbar-h2{
+    font-size: 1.5em;
+}
+
+#navbar-ul{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+#navbar-header{
+    background-color: rgb(230, 230, 230);
+    padding-top: 1em;
+    padding-left: 1em;
+    padding-bottom: 1em;
+}
+
+.navbar-li{
+    background-color: rgb(255, 255, 255);
+    padding-bottom: .5em;
+    padding-top: .5em;
+    padding-left: 1em;
+    border-style: solid;
+    border-top-width: 1px;
+    border-right-width: 0px;
+    border-bottom-width: 0px;
+    border-left-width: 0px;
+}
+
+#navbar-ul li:nth-child(5){
+    border-bottom-width: 1px;
+}
+
+.nav-link{
+    text-decoration: none;
+}
+
+.navbar-li:hover{
+    background-color: rgb(177, 233, 255);
 }
