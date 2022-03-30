@@ -62,13 +62,14 @@ h1{
     border-left-width: 0px;
 }
 
-#sections-container{
+#main-doc{
     margin-left: 200px;
     margin-top: 4em;
     padding-left: 1em;
     padding-top: 1em;
     padding-right: 1em;
     padding-bottom: 1em;
+    line-height: 1.5em;
 }
 
 #navbar-h2{
@@ -89,10 +90,6 @@ h1{
 }
 
 .navbar-li{
-    background-color: rgb(255, 255, 255);
-    padding-bottom: .5em;
-    padding-top: .5em;
-    padding-left: 1em;
     border-style: solid;
     border-top-width: 1px;
     border-right-width: 0px;
@@ -106,8 +103,51 @@ h1{
 
 .nav-link{
     text-decoration: none;
+    background-color: rgb(255, 255, 255);
+    display: block;
+    padding-left: 1em;
+    padding-bottom: .5em;
+    padding-top: .5em;
 }
 
-.navbar-li:hover{
+.nav-link:hover{
     background-color: rgb(177, 233, 255);
+}
+
+.code-config{
+    display: block;
+    white-space: pre-line;
+    box-sizing: border-box;
+    padding-bottom: 1.5em;
+    padding-left: 1em;
+    padding-right: 1em;
+    margin-bottom: 1em;
+    background-color: #f7f7f7;
+}
+
+@media (max-width: 500px){
+    body{
+        font-size: 14px;
+    }
+    #navbar{
+        width: 150px;
+    }
+
+    #main-doc{
+        margin-left: 150px;
+        /* overflow: scroll; */
+    }
+
+    h1{
+        font-size: 1.5em;
+    }
+
+    #main-image{
+        height: 1.5em;
+        width: 1.5em;
+    }
+
+    #navbar-h2{
+        font-size: 1.25em;
+    }
 }
