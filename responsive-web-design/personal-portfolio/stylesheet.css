@@ -40,10 +40,6 @@ body{
     /* background-color: brown; */
 }
 
-#li-adjust{
-    height: 4em;
-}
-
 #navbar-ul li{
     list-style: none;
     margin: 0;
@@ -71,7 +67,7 @@ body{
 #welcome-section{
     height: 100vh;
     margin-top: 4em;
-    background-image: linear-gradient(rgba(34, 5, 34, 0.5), rgba(255,255,255,0.4)), url('tech-keyboard.jpg');
+    background-image: linear-gradient(rgba(34, 5, 34, 0.5), rgba(99, 97, 97, 0.4)), url('tech-keyboard.jpg');
     background-size: cover;
 }
 
@@ -123,6 +119,64 @@ h1{
 #profile-link:hover{
     filter: brightness(0) saturate(100%);
     filter: invert(30%) sepia(98%) saturate(1232%) hue-rotate(322deg) brightness(95%) contrast(89%);
+}
+
+#projects{
+    background-image: linear-gradient(-45deg, rgb(132, 145, 179), rgb(201, 211, 245), rgb(132, 145, 179));
+    padding-top: 2em;
+}
+
+#projects-first-title{
+    font-size: 3em;
+    color: rgb(20, 20, 20);
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.project-tile{
+    display: block;
+    height: 20rem;
+    width: 20rem;
+    padding-top: 9rem;
+    padding-bottom: 9rem;
+    font-size: 2em;
+    text-decoration: none;
+    background-size: cover;
+    background-position: center;
+    text-align: center;
+    box-sizing: border-box;
+    color: white;
+    border-radius: 2rem;
+    transition: color .25s ease-in-out;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 3rem;
+}
+
+#projects-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.project-tile:hover{
+    color: rgb(231, 194, 146)
+}
+
+.tribute-page-bg{
+    background-image: linear-gradient(rgba(34, 4, 141, 0.5) ,rgba(0,0,0,0.8)), url('tribute-page.png');
+}
+
+.survey-form-bg{
+    background-image: linear-gradient(rgba(34, 4, 141, 0.5) ,rgba(0,0,0,0.8)), url('survey-form.png');
+}
+
+.landing-page-bg{
+    background-image: linear-gradient(rgba(34, 4, 141, 0.5) ,rgba(0,0,0,0.8)), url('landing-page.png');
+}
+
+.documentation-page-bg{
+    background-image: linear-gradient(rgba(34, 4, 141, 0.5) ,rgba(0,0,0,0.8)), url('documentation-page.png');
 }
 
 @media (max-width: 600px){
