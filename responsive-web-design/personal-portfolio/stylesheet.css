@@ -3,18 +3,34 @@ body{
     font-size: 16px;
 }
 
-#profile-link{
-    background-color: red;
-}
-
 #header{
     position: fixed;
-    display: flex;
     top: 0;
     height: 4em;
     background-color: rgb(20, 20, 20);
     width: 100vw;
     box-sizing: border-box;
+    padding-left: 3em;
+    padding-right: 4em;
+}
+
+#main-header-content{
+    display: flex;
+    justify-content: space-between;
+}
+
+#css-logo-container{
+    margin-left: 0;
+    margin-right: 0;
+}
+
+#css-logo{
+    height: 2em;
+}
+
+.filter-color{
+    /* https://stackoverflow.com/questions/22252472/how-to-change-the-color-of-an-svg-element */
+    filter: invert(89%) sepia(6%) saturate(1160%) hue-rotate(331deg) brightness(108%) contrast(96%);
 }
 
 #navbar-ul{
@@ -34,6 +50,7 @@ body{
     padding: 0;
     display: inline-block;
     box-sizing: border-box;
+    margin-left: 3em;
 }
 
 #navbar-ul a{
@@ -61,6 +78,51 @@ body{
 h1, h2, h3{
     margin: 0;
     padding: 0;
+}
+
+#welcome-section{
+    padding-top: 5em;
+    text-align: center;
+    color: white;
+    padding-left: 25%;
+    padding-right: 25%;
+}
+
+h1{
+    font-size: 5em;
+}
+
+#welcome-section-h2{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    font-size: 3em;
+}
+
+#welcome-section-p{
+    font-size: 2em;
+    margin-top: 1rem;
+}
+
+#my-photo{
+    border-radius: 50%;
+    border-style: solid;
+    border-width: 8px;
+    height: 300px;
+    width: 300px;
+}
+
+#github-logo{
+    height: 50px;
+}
+
+#github-logo-caption{
+    margin-top: .25em;
+    font-size: 1.5em;
+}
+
+#profile-link:hover{
+    filter: brightness(0) saturate(100%);
+    filter: invert(30%) sepia(98%) saturate(1232%) hue-rotate(322deg) brightness(95%) contrast(89%);
 }
 
 @media (max-width: 600px){
