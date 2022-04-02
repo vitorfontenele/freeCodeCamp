@@ -61,7 +61,7 @@ body{
 }
 
 #navbar-ul a:hover{
-    color: rgb(230, 66, 93);
+    color: rgb(191, 219, 255);
 }
 
 #welcome-section{
@@ -86,12 +86,14 @@ h1, h2, h3{
 
 h1{
     font-size: 5em;
+    color: antiquewhite;
 }
 
 #welcome-section-h2{
     margin-top: 1rem;
     margin-bottom: 1rem;
     font-size: 3em;
+    color: antiquewhite;
 }
 
 #welcome-section-p{
@@ -145,12 +147,9 @@ h1{
     background-position: center;
     text-align: center;
     box-sizing: border-box;
-    color: white;
+    color: antiquewhite;
     border-radius: 2rem;
     transition: color .25s ease-in-out;
-    margin-left: 2rem;
-    margin-right: 2rem;
-    margin-bottom: 3rem;
 }
 
 #projects-container{
@@ -160,7 +159,7 @@ h1{
 }
 
 .project-tile:hover{
-    color: rgb(231, 194, 146)
+    color: rgb(191, 219, 255);
 }
 
 .tribute-page-bg{
@@ -177,6 +176,26 @@ h1{
 
 .documentation-page-bg{
     background-image: linear-gradient(rgba(34, 4, 141, 0.5) ,rgba(0,0,0,0.8)), url('documentation-page.png');
+}
+
+.project-tile-container{
+    max-width: 24rem;
+    background-color: rgb(20, 20, 48);
+    padding: 2rem;
+    box-sizing: border-box;
+    border-radius: 2rem;
+    margin-left: 2rem;
+    margin-right: 2rem;
+    margin-bottom: 4rem;
+}
+
+.project-tile-container p{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    margin-top: 2rem;
+    color: white;
+    font-size: 1.25rem;
 }
 
 @media (max-width: 600px){
