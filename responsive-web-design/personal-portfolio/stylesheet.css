@@ -69,6 +69,7 @@ body{
     margin-top: 4em;
     background-image: linear-gradient(rgba(34, 5, 34, 0.5), rgba(99, 97, 97, 0.4)), url('tech-keyboard.jpg');
     background-size: cover;
+    box-sizing: border-box;
 }
 
 h1, h2, h3{
@@ -77,11 +78,13 @@ h1, h2, h3{
 }
 
 #welcome-section{
-    padding-top: 5em;
+    padding-top: 4em;
+    padding-bottom: 4em;
     text-align: center;
     color: white;
-    padding-left: 25%;
-    padding-right: 25%;
+    overflow: scroll;
+    padding-left: 10%;
+    padding-right: 10%;
 }
 
 h1{
@@ -195,11 +198,32 @@ h1{
     padding: 0;
     margin-top: 2rem;
     color: white;
-    font-size: 1.25rem;
+    font-size: 1.25em;
 }
 
 @media (max-width: 600px){
-    body{
-        font-size: 15px;
+    #navbar-ul a{
+        font-size: 1.25rem;
+    }
+
+    h1{
+        font-size: 2rem;
+    }
+
+    #welcome-section-h2, #welcome-section-p, #github-logo-caption{
+        font-size: 1.5rem;
+    }
+
+    .project-tile-container p{
+        font-size: 20px;
+    }
+
+    #projects-first-title{
+        font-size: 2rem;
+    }
+
+    #my-photo{
+        height: 150px;
+        width: 150px;
     }
 }
