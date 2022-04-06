@@ -1,0 +1,9 @@
+const MyComponent = function() {
+  // Change code below this line
+  return (
+    <div>
+      I love pasta.
+    </div>
+  )
+  // Change code above this line
+}
