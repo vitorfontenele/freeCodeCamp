@@ -15,20 +15,20 @@ $(document).ready(function(){
     function fillQuote(){
         //Current quote
         let currentQuoteText = $("#text").text();
-        
+
         //New quote to be displayed
-        let newQuotes = quotes.filter(quote => quote.text != currentQuoteText);
+        let newQuotes = quotes.filter(quote => quote.text !== currentQuoteText);
         let randomIndex = Math.floor(Math.random() * newQuotes.length);
         let randomQuoteText = newQuotes[randomIndex].text;
         let randomQuoteAuthor = newQuotes[randomIndex].author;
-
-        $("#text").text(randomQuoteText);
-        $("#author").text(randomQuoteAuthor);
+        
+        $("#text").text(`${randomQuoteText}`);
+        $("#author").text(`--${randomQuoteAuthor}`);
+        
     }
     fillQuote();
 
     $("#new-quote").click(function(){
-        console.log("Click!")
         fillQuote();
     });
 });
