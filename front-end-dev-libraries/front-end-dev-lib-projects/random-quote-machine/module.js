@@ -12,23 +12,37 @@ $(document).ready(function(){
         {text: "In nothing do men more nearly approach the gods than in giving health to men.", author: "Cicero"},
     ];
 
-    function fillQuote(){
-        //Current quote
-        let currentQuoteText = $("#text").text();
-
-        //New quote to be displayed
-        let newQuotes = quotes.filter(quote => quote.text !== currentQuoteText);
-        let randomIndex = Math.floor(Math.random() * newQuotes.length);
-        let randomQuoteText = newQuotes[randomIndex].text;
-        let randomQuoteAuthor = newQuotes[randomIndex].author;
-        
-        $("#text").text(`${randomQuoteText}`);
-        $("#author").text(`--${randomQuoteAuthor}`);
-        
-    }
-    fillQuote();
-
     $("#new-quote").click(function(){
-        fillQuote();
+        $("#text").fadeOut("slow");
+        $("#text").promise().done(function(){
+            //Current quote
+            let currentQuoteText = $("#text").text();
+
+            //Let's make sure the new quote is at least different from the previous one
+            let newQuotes = quotes.filter(quote => quote.text !== currentQuoteText);
+
+            //New quote to be displayed
+            let randomIndex = randomArrIndex(newQuotes);
+            let randomQuoteText = newQuotes[randomIndex].text;
+            let randomQuoteAuthor = newQuotes[randomIndex].author;
+            
+            //Placing changes in the page
+            $("#text").text(`${randomQuoteText}`);
+            $("#author").text(`--${randomQuoteAuthor}`)
+            $("#text").fadeIn('slow')
+
+            //Updating 'href' attribute from the Twitter anchor
+            let urlQuoteText = generateUrlText(randomQuoteText);
+            let urlQuoteAuthor = generateUrlText(randomQuoteAuthor);
+            let urlQuote = `${urlQuoteText}%20--${urlQuoteAuthor}`;
+            $("#tweet-quote").attr("href", `http://twitter.com/intent/tweet?text=${urlQuote}`);
+        });
     });
+
+    //Random index from a given array
+    function randomArrIndex(arr) {return Math.floor(Math.random() * arr.length)};
+    //In the 'text' url attribute, spaces are replaced by '%20'
+    function generateUrlText(str) {return str.split(" ").join("%20")};
 });
+
+//https://stackoverflow.com/questions/18213701/running-jquery-functions-with-effects-in-a-specific-order

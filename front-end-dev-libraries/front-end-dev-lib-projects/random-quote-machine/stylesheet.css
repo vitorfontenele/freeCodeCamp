@@ -70,3 +70,7 @@ body{
     display: flex;
     align-items: center;
 }
+
+.fa-twitter{
+    margin-left: .5em;
+}
