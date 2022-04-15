@@ -1,0 +1,85 @@
+.flex-box{
+  padding-top: 20px;
+  background-color: aliceblue;
+  padding-bottom: 20px;
+}
+
+.flex-box .half-page:nth-child(1){
+  margin-bottom: 20px;
+  height: 400px;
+}
+
+.half-page{
+  width: 80vw;
+  padding-bottom: 2vw;
+  padding-top: 2vw;
+  box-shadow: 0 0 1em black;
+  margin: auto;
+}
+
+.border-radius{
+  border-radius: 2vw;
+}
+
+.gray{
+  background-color: #9596A1;
+}
+
+.white{
+  background-color: white;
+}
+
+.centered{
+  display: flex;
+  justify-content: center;
+}
+
+.full-width{
+  width: 76vw;
+}
+
+.full-height{
+  height: 100%;
+}
+
+.scroll{
+  overflow: scroll;
+}
+
+textarea{
+  display: block;
+  margin: 0;
+  resize: none;
+}
+
+.special-padding{
+  padding: .5rem;
+}
+
+.border-box{
+  box-sizing: border-box;
+}
+
+@media (min-width: 600px){
+  .flex-box{
+    display: flex;
+    justify-content: space-around;
+    height: 100vh;
+  }
+  
+  .half-page{
+    width: 40vw;
+    padding-bottom: 2vw;
+    padding-top: 2vw;
+    margin: 0;
+  }
+  
+  .full-width{
+    width: 36vw;
+  }
+  
+  .flex-box .half-page:nth-child(1){
+    margin-bottom: 0;
+    height: auto;
+  }
+}
