@@ -60,14 +60,22 @@ $(document).ready(function () {
     })
 
     $("#equals").click(function(){
+        let equals = $(this).attr("value");
+        let containsEquals = currentOperation.includes(equals);
+        if (containsEquals){
+            return;
+        };
+
         let lastEl = currentOperation[currentOperation.length - 1];
         let secondToLastEl = currentOperation[currentOperation.length - 2];
         let lastIsOperator = operators.includes(lastEl);
         let secondToLastIsOperator = operators.includes(secondToLastEl);
         if (lastIsOperator && secondToLastIsOperator){
-            currentOperation = currentOperation.slice(0,- 2) + $(this).attr("value");
+            currentOperation = currentOperation.slice(0,- 2) + equals + "RESULT";
         } else if (lastIsOperator){
-            currentOperation = currentOperation.slice(0,- 1) + $(this).attr("value");
+            currentOperation = currentOperation.slice(0,- 1) + equals + "RESULT";
+        } else {
+            currentOperation += (equals + "RESULT");
         }
         /*
         if (replaceLast){
