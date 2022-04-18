@@ -1,13 +1,14 @@
 $(document).ready(function () {
-    //var currentValue = 10;
+    var currentValue = "";
     var currentOperation = "";
     var operators = ["+","-","/","*"];
     var equals = $("#equals").attr("value");
 
     $("#clear").click(function(){
-        $("#result").text(0);
         currentOperation = "";
+        currentValue = "";
         $("#operation").text(currentOperation);
+        $("#display").text("0");
     })
 
     $(".operator").click(function(){
@@ -38,6 +39,8 @@ $(document).ready(function () {
             currentOperation += operator;
         }
         $("#operation").text(currentOperation);
+        currentValue = operator;
+        $("#display").text(currentValue);
     })
 
     $(".number").click(function(){
@@ -47,15 +50,24 @@ $(document).ready(function () {
         };
 
         let number = $(this).attr("value");
-        if (number == 0 && currentOperation === "0"){
+        let lastGroup = currentOperation.split(/\+|\-|\*|\//).slice(-1);
+        if (number == 0 && lastGroup[0] === '0'){
             return;
-        } else if (currentOperation === "0"){
-            currentOperation = number;
+        } else if (lastGroup[0] === '0'){
+            currentOperation = currentOperation.slice(0, -1) + number;
+            currentValue = number;
         } else {
-            currentOperation += $(this).attr("value");
+            currentOperation += number;
+            let valueHasOperator = operators.includes(currentValue);
+            if (valueHasOperator){
+                currentValue = number;
+            } else {
+                currentValue += number;
+            }
         }
         
         $("#operation").text(currentOperation);
+        $("#display").text(currentValue);
     })
 
     $("#decimal").click(function(){
@@ -76,10 +88,13 @@ $(document).ready(function () {
         let lastIsEmpty = (lastEl == undefined);
         if (lastIsOperator || lastIsEmpty){
             currentOperation += ("0" + operator);
+            currentValue = "0" + operator;
         } else {
             currentOperation += operator;
+            currentValue += operator;
         }
         $("#operation").text(currentOperation);
+        $("#display").text(currentValue);
     })
 
     $("#equals").click(function(){
@@ -99,7 +114,9 @@ $(document).ready(function () {
         } else {
             currentOperation += (equals + "RESULT");
         }
-
+        currentValue = "RESULT";
         $("#operation").text(currentOperation);
+        $("#display").text(currentValue);
+        currentValue = "";
     })
 });
