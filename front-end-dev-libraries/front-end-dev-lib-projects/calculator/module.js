@@ -15,10 +15,10 @@ $(document).ready(function () {
         if (containsEquals){
             currentOperation = currentOperation.split(equals).slice(-1);
         };
-        /*
-        if (currentOperation == ""){
+
+        if (currentOperation === ""){
             currentOperation = 0;
-        } */
+        } 
         let operator = $(this).attr("value");
         let lastEl = currentOperation[currentOperation.length - 1];
         let secondToLastEl = currentOperation[currentOperation.length - 2];
@@ -46,7 +46,15 @@ $(document).ready(function () {
             currentOperation = "";
         };
 
-        currentOperation += $(this).attr("value");
+        let number = $(this).attr("value");
+        if (number == 0 && currentOperation === "0"){
+            return;
+        } else if (currentOperation === "0"){
+            currentOperation = number;
+        } else {
+            currentOperation += $(this).attr("value");
+        }
+        
         $("#operation").text(currentOperation);
     })
 
@@ -76,7 +84,7 @@ $(document).ready(function () {
 
     $("#equals").click(function(){
         let containsEquals = currentOperation.includes(equals);
-        if (containsEquals){
+        if (containsEquals || (currentOperation === "")){
             return;
         };
 
