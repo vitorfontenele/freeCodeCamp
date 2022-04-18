@@ -6,31 +6,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="stylesheet.css">
     <link rel="stylesheet" type="text/css" href="normalize.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bai+Jamjuree:wght@300&display=swap" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <script src="module.js"></script>
     <title>Calculator</title>
 </head>
 <body>
-    <div id="calculator">
-        <div id="operation"></div>
-        <div id="display">0</div>
-        <button class="block" id="clear">AC</button>
-        <button class="block" id="decimal" value=".">.</button>
-        <button class="block operator" id="divide" value="/">/</button>
-        <button class="block number" id="seven" value="7">7</button>
-        <button class="block number" id="eight" value="8">8</button>
-        <button class="block number" id="nine" value="9">9</button>
-        <button class="block operator" id="multiply" value="*">*</button>
-        <button class="block number" id="four" value="4">4</button>
-        <button class="block number" id="five" value="5">5</button>
-        <button class="block number" id="six" value="6">6</button>
-        <button class="block operator" id="subtract" value="-">-</button>
-        <button class="block number" id="one" value="1">1</button>
-        <button class="block number" id="two" value="2">2</button>
-        <button class="block number" id="three" value="3">3</button>
-        <button class="block operator" id="add" value="+">+</button>
-        <button class="block number" id="zero" value="0">0</button>
-        <button class="block" id="equals" value="=">=</button>
+    <div id="calc-container">
+        <div id="calculator">
+            <div id="operation"></div>
+            <div id="display">0</div>
+            <button class="block" id="clear">AC</button>
+            <button class="block" id="decimal" value=".">.</button>
+            <button class="block operator" id="divide" value="/">/</button>
+            <button class="block number" id="seven" value="7">7</button>
+            <button class="block number" id="eight" value="8">8</button>
+            <button class="block number" id="nine" value="9">9</button>
+            <button class="block operator" id="multiply" value="*">*</button>
+            <button class="block number" id="four" value="4">4</button>
+            <button class="block number" id="five" value="5">5</button>
+            <button class="block number" id="six" value="6">6</button>
+            <button class="block operator" id="subtract" value="-">-</button>
+            <button class="block number" id="one" value="1">1</button>
+            <button class="block number" id="two" value="2">2</button>
+            <button class="block number" id="three" value="3">3</button>
+            <button class="block operator" id="add" value="+">+</button>
+            <button class="block number" id="zero" value="0">0</button>
+            <button class="block" id="equals" value="=">=</button>
+        </div>
+    </div>
+    <div id="quote">
+        <blockquote>
+            Everything that is beautiful and noble is the product of reason and calculation.
+            <cite>--Charles Baudelaire</cite>
+        </blockquote>
     </div>
 </body>
 </html>
