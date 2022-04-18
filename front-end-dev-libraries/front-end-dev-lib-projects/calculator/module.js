@@ -10,9 +10,10 @@ $(document).ready(function () {
     })
 
     $(".operator").click(function(){
+        /*
         if (currentOperation == ""){
             currentOperation = 0;
-        }
+        } */
         let operator = $(this).attr("value");
         let lastEl = currentOperation[currentOperation.length - 1];
         let secondToLastEl = currentOperation[currentOperation.length - 2];
@@ -21,21 +22,40 @@ $(document).ready(function () {
         if (lastIsOperator){
             if (secondToLastIsOperator){
                 if (operator != '-'){
-                    currentOperation = currentOperation.slice(0,- 2) + $(this).attr("value"); 
+                    currentOperation = currentOperation.slice(0,- 2) + operator; 
                 }
             } else if (operator == '-') {
-                currentOperation += $(this).attr("value");
+                currentOperation += operator;
             } else {
-                currentOperation = currentOperation.slice(0,- 1) + $(this).attr("value");
+                currentOperation = currentOperation.slice(0,- 1) + operator;
             }
         } else{
-            currentOperation += $(this).attr("value");
+            currentOperation += operator;
         }
         $("#operation").text(currentOperation);
     })
 
     $(".number").click(function(){
         currentOperation += $(this).attr("value");
+        $("#operation").text(currentOperation);
+    })
+
+    $("#decimal").click(function(){
+        let operator = $(this).attr("value");
+        let lastGroup = currentOperation.split(/\+|\-|\*|\//).slice(-1);
+        let lastContainsDot = lastGroup[0].includes(operator);
+        if (lastContainsDot){
+            return;
+        }
+
+        let lastEl = currentOperation[currentOperation.length - 1];
+        let lastIsOperator = operators.includes(lastEl);
+        let lastIsEmpty = (lastEl == undefined);
+        if (lastIsOperator || lastIsEmpty){
+            currentOperation += ("0" + operator);
+        } else {
+            currentOperation += operator;
+        }
         $("#operation").text(currentOperation);
     })
 
