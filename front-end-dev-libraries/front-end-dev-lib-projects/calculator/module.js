@@ -2,6 +2,7 @@ $(document).ready(function () {
     //var currentValue = 10;
     var currentOperation = "";
     var operators = ["+","-","/","*"];
+    var equals = $("#equals").attr("value");
 
     $("#clear").click(function(){
         $("#result").text(0);
@@ -10,6 +11,10 @@ $(document).ready(function () {
     })
 
     $(".operator").click(function(){
+        let containsEquals = currentOperation.includes(equals);
+        if (containsEquals){
+            currentOperation = currentOperation.split(equals).slice(-1);
+        };
         /*
         if (currentOperation == ""){
             currentOperation = 0;
@@ -36,11 +41,21 @@ $(document).ready(function () {
     })
 
     $(".number").click(function(){
+        let containsEquals = currentOperation.includes(equals);
+        if (containsEquals){
+            currentOperation = "";
+        };
+
         currentOperation += $(this).attr("value");
         $("#operation").text(currentOperation);
     })
 
     $("#decimal").click(function(){
+        let containsEquals = currentOperation.includes(equals);
+        if (containsEquals){
+            currentOperation = "";
+        };
+        
         let operator = $(this).attr("value");
         let lastGroup = currentOperation.split(/\+|\-|\*|\//).slice(-1);
         let lastContainsDot = lastGroup[0].includes(operator);
@@ -60,7 +75,6 @@ $(document).ready(function () {
     })
 
     $("#equals").click(function(){
-        let equals = $(this).attr("value");
         let containsEquals = currentOperation.includes(equals);
         if (containsEquals){
             return;
@@ -77,10 +91,7 @@ $(document).ready(function () {
         } else {
             currentOperation += (equals + "RESULT");
         }
-        /*
-        if (replaceLast){
-            currentOperation = currentOperation.slice(0, currentOperation.length - 1) + $(this).attr("value");
-        } */
+
         $("#operation").text(currentOperation);
     })
 });
