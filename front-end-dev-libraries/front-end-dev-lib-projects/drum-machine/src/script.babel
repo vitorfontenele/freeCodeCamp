@@ -1,0 +1,126 @@
+const audio = {"Q":"Bendy", "W":"Blobble", "E":"Bongo-Hi","A":"Crikix","S":"Lotabla", "D":"Pipechimes", "Z":"Steel-Drum", "X":"Tablaesque", "C":"Verby-Rattle"};
+const audioIds = Object.keys(audio);
+
+class App extends React.Component {
+  constructor(props){
+    super(props);
+    this.handleClick = this.handleClick.bind(this);
+  }
+  handleClick(event){
+    let buttonId = event.target.getAttribute("id");
+    let button = document.getElementById(buttonId);
+    let buttonText = button.textContent;
+    let audioId = buttonText;
+    document.getElementById("display").textContent = audio[audioId];
+    document.getElementById(audioId).play(); 
+  }
+  render(){
+    return (
+      <div id="drum-machine">
+        <h1>Drum Machine</h1>
+        <Display />
+        <div id="drum-buttons">
+          <Bendy onClick={this.handleClick}/>
+          <Blobble onClick={this.handleClick}/>
+          <BongoHi onClick={this.handleClick}/>
+          <Crikix onClick={this.handleClick}/>
+          <Lotabla onClick={this.handleClick}/>
+          <Pipechimes onClick={this.handleClick}/>
+          <SteelDrum onClick={this.handleClick}/>
+          <Tablaesque onClick={this.handleClick}/>
+          <VerbyRattle onClick={this.handleClick}/>
+        </div>
+      </div>
+    )
+  }
+}
+
+const Display = function(props){
+  return (
+    <div id="display">
+    </div>
+  )
+}
+
+const Bendy = function(props){
+  return (
+    <button id="bendy-audio-button" className="drum-pad" onClick={props.onClick}>{audioIds[0]}
+      <audio id="Q" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/African%20and%20Eastern%20Percussion/91[kb]african-pe-med.wav.mp3" className="clip" />
+    </button>
+  )
+}
+
+const Blobble = function(props){
+  return (
+    <button id="blobble-audio-button" className="drum-pad" onClick={props.onClick}>{audioIds[1]}
+      <audio id="W" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/African%20and%20Eastern%20Percussion/36[kb]blobble.wav.mp3" className="clip" />
+    </button>
+  )
+}
+
+const BongoHi = function(props){
+  return (
+    <button id="bongo-hi-audio-button" className="drum-pad" onClick={props.onClick}>{audioIds[2]}
+      <audio id="E" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/African%20and%20Eastern%20Percussion/12[kb]bongo%20hi.wav.mp3" className="clip" />
+    </button>
+  )
+}
+
+const Crikix = function(props){
+  return (
+    <button id="crikix-audio-button" className="drum-pad" onClick={props.onClick}>{audioIds[3]}
+      <audio id="A" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/African%20and%20Eastern%20Percussion/69[kb]crikix.wav.mp3" className="clip" />
+    </button>
+  )
+}
+
+const Lotabla = function(props){
+  return (
+    <button id="lotabla-audio-button" className="drum-pad" onClick={props.onClick}>{audioIds[4]}
+      <audio id="S" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/African%20and%20Eastern%20Percussion/201[kb]lotabla.wav.mp3" className="clip" />
+    </button>
+  )
+}
+
+const Pipechimes = function(props){
+  return (
+    <button id="pipechimes-audio-button" className="drum-pad" onClick={props.onClick}>{audioIds[5]}
+      <audio id="D" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/African%20and%20Eastern%20Percussion/122[kb]pipechimes.wav.mp3" className="clip" />
+    </button>
+  )
+}
+
+const SteelDrum= function(props){
+  return (
+    <button id="steel-drum-audio-button" className="drum-pad" onClick={props.onClick}>{audioIds[6]}
+      <audio id="Z" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/African%20and%20Eastern%20Percussion/83[kb]steeldrum.wav.mp3" className="clip" />
+    </button>
+  )
+}
+
+const Tablaesque = function(props){
+  return (
+    <button id="tablaesque-audio-button" className="drum-pad" onClick={props.onClick}>{audioIds[7]}
+      <audio id="X" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/African%20and%20Eastern%20Percussion/11[kb]tablaesque.wav.mp3" className="clip" />
+    </button>
+  )
+}
+
+const VerbyRattle = function(props){
+  return (
+    <button id="verby-rattle-audio-button" className="drum-pad" onClick={props.onClick}>{audioIds[8]}
+      <audio id="C" src="https://sampleswap.org/samples-ghost/DRUMS%20(SINGLE%20HITS)/African%20and%20Eastern%20Percussion/54[kb]verby-rattle.wav.mp3" className="clip"/>
+    </button>
+  )
+}
+
+document.addEventListener('keypress', function(event){
+  let code = event.code;
+  let codeId = code.split("Key")[1];
+  if (audioIds.includes(codeId)){
+    document.getElementById("display").textContent = audio[codeId];
+    document.getElementById(codeId).play();
+  }
+});
+
+ReactDOM.render(<App />, document.getElementById("container"));
