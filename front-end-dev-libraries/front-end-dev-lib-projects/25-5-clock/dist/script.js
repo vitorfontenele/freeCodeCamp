@@ -18,19 +18,19 @@ class App extends React.Component {
 
   }
   controlBreakIncrement(event) {
-    if (this.state.breakLength < 59 && !this.state.running) {
+    if (this.state.breakLength < 60 && !this.state.running) {
       this.setState(state => ({ breakLength: state.breakLength + 1 }),
-      () => this.updateTimeLeft(this.state.sessionLength, 'Break'));
+      () => this.updateTimeLeft(this.state.breakLength, 'Break'));
     }
   }
   controlBreakDecrement(event) {
     if (this.state.breakLength > 1 && !this.state.running) {
       this.setState(state => ({ breakLength: state.breakLength - 1 }),
-      () => this.updateTimeLeft(this.state.sessionLength, 'Break'));
+      () => this.updateTimeLeft(this.state.breakLength, 'Break'));
     }
   }
   controlSessionIncrement(event) {
-    if (this.state.sessionLength < 59 && !this.state.running) {
+    if (this.state.sessionLength < 60 && !this.state.running) {
       this.setState(state => ({ sessionLength: state.sessionLength + 1 }),
       () => this.updateTimeLeft(this.state.sessionLength, 'Session'));
     }
@@ -53,28 +53,36 @@ class App extends React.Component {
     let dateLeft = new Date(this.msLeft - interval);
     let minutesLeft = dateLeft.getMinutes() >= 10 ? dateLeft.getMinutes().toString() : "0" + dateLeft.getMinutes().toString();
     let secondsLeft = dateLeft.getSeconds() >= 10 ? dateLeft.getSeconds().toString() : "0" + dateLeft.getSeconds().toString();
-    this.setState({ timeLeft: minutesLeft + ":" + secondsLeft }, () => this.updateStatus(this.state.timeLeft));
+    this.setState({ timeLeft: minutesLeft + ":" + secondsLeft }, () => this.checkZero(this.state.timeLeft));
   }
-  updateStatus(timeLeft) {
+  checkZero(timeLeft) {
     if (timeLeft === "00:00") {
       clearInterval(this.myInterval);
-      this.setState(state => ({ timerStatus: state.timerStatus === "Session" ? "Break" : "Session" }),
-      () => this.triggerCounter(this.state.timerStatus));
+      document.getElementById("beep").play();
+      //console.log(this.state.sessionLength, this.state.breakLength);
+      this.triggerCounter();
     }
   }
-  triggerCounter(status) {
+  triggerCounter() {
     let breakLength = (this.state.breakLength >= 10 ? this.state.breakLength.toString() : "0" + this.state.breakLength.toString()) + ":00";
     let sessionLength = (this.state.sessionLength >= 10 ? this.state.sessionLength.toString() : "0" + this.state.sessionLength.toString()) + ":00";
-    this.setState({ timeLeft: status === "Session" ? sessionLength : breakLength }, () => this.counter(true, this.state.timeLeft));
+    this.triggerTimeout = setTimeout(() => {
+      this.setState(state => ({ timerStatus: state.timerStatus === "Session" ? "Break" : "Session" }), () => this.counter(true, this.state.timerStatus === "Session" ? sessionLength : breakLength));
+    }, 1000);
   }
   counter(check, timeLeft = this.state.timeLeft) {
     if (check) {
-      this.clickTime = new Date().getTime();
-      let minutesLeft = parseInt(timeLeft.split(":")[0]);
-      let secondsLeft = parseInt(timeLeft.split(":")[1]);
-      this.msLeft = minutesLeft * 60 * 1000 + secondsLeft * 1000;
-      this.myInterval = setInterval(this.updateCounter, 100);
+      this.setState({ timeLeft: timeLeft });
+      this.counterTimeout = setTimeout(() => {
+        this.clickTime = new Date().getTime();
+        let minutesLeft = parseInt(timeLeft.split(":")[0]);
+        let secondsLeft = parseInt(timeLeft.split(":")[1]);
+        this.msLeft = minutesLeft * 60 * 1000 + secondsLeft * 1000;
+        this.myInterval = setInterval(this.updateCounter, 100);
+      }, 1000);
     } else {
+      clearTimeout(this.counterTimeout);
+      clearTimeout(this.triggerTimeout);
       clearInterval(this.myInterval);
     }
   }
@@ -84,12 +92,17 @@ class App extends React.Component {
     () => this.counter(this.state.running));
   }
   resetSession(event) {
+    clearTimeout(this.counterTimeout);
+    clearTimeout(this.triggerTimeout);
     clearInterval(this.myInterval);
+    document.getElementById("beep").pause();
+    document.getElementById("beep").currentTime = 0;
     this.setState({
       running: false,
       breakLength: 5,
       sessionLength: 25,
-      timeLeft: "25:00" });
+      timeLeft: "25:00",
+      timerStatus: "Session" });
 
   }
   render() {
@@ -142,8 +155,9 @@ const Timer = function (props) {
     React.createElement("i", { class: "fa-solid fa-play" })), /*#__PURE__*/
 
     React.createElement("button", { id: "reset", onClick: props.resetSession }, /*#__PURE__*/
-    React.createElement("i", { class: "fa-solid fa-arrow-rotate-left" }))));
+    React.createElement("i", { class: "fa-solid fa-arrow-rotate-left" })), /*#__PURE__*/
 
+    React.createElement("audio", { id: "beep", src: "https://sampleswap.org/samples-ghost/SOUND%20EFFECTS%20and%20NOISES/Cheesy%20Lo-Fi%20Sound%20Effects/60[kb]Busyfone.wav.mp3" })));
 
 
 };
