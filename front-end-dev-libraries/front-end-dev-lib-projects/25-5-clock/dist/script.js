@@ -67,11 +67,11 @@ class App extends React.Component {
     let breakLength = (this.state.breakLength >= 10 ? this.state.breakLength.toString() : "0" + this.state.breakLength.toString()) + ":00";
     let sessionLength = (this.state.sessionLength >= 10 ? this.state.sessionLength.toString() : "0" + this.state.sessionLength.toString()) + ":00";
     this.triggerTimeout = setTimeout(() => {
-      this.setState(state => ({ timerStatus: state.timerStatus === "Session" ? "Break" : "Session" }), () => this.counter(true, this.state.timerStatus === "Session" ? sessionLength : breakLength));
+      this.setState(state => ({ timerStatus: state.timerStatus === "Session" ? "Break" : "Session" }), () => this.counter(this.state.running, this.state.timerStatus === "Session" ? sessionLength : breakLength));
     }, 1000);
   }
   counter(check, timeLeft = this.state.timeLeft) {
-    if (check) {
+    if (check && timeLeft !== "00:00") {
       this.setState({ timeLeft: timeLeft });
       this.counterTimeout = setTimeout(() => {
         this.clickTime = new Date().getTime();
@@ -80,7 +80,10 @@ class App extends React.Component {
         this.msLeft = minutesLeft * 60 * 1000 + secondsLeft * 1000;
         this.myInterval = setInterval(this.updateCounter, 100);
       }, 1000);
-    } else {
+    } else if (check && timeLeft === "00:00") {
+      this.triggerCounter();
+    } else
+    {
       clearTimeout(this.counterTimeout);
       clearTimeout(this.triggerTimeout);
       clearInterval(this.myInterval);
@@ -108,8 +111,11 @@ class App extends React.Component {
   render() {
     return /*#__PURE__*/(
       React.createElement("div", { id: "clock" }, /*#__PURE__*/
+      React.createElement("h1", null, "25+5 Clock"), /*#__PURE__*/
+      React.createElement("div", { id: "break-session-flex" }, /*#__PURE__*/
       React.createElement(Break, { breakLength: this.state.breakLength, controlBreakIncrement: this.controlBreakIncrement, controlBreakDecrement: this.controlBreakDecrement }), /*#__PURE__*/
-      React.createElement(Session, { sessionLength: this.state.sessionLength, controlSessionIncrement: this.controlSessionIncrement, controlSessionDecrement: this.controlSessionDecrement }), /*#__PURE__*/
+      React.createElement(Session, { sessionLength: this.state.sessionLength, controlSessionIncrement: this.controlSessionIncrement, controlSessionDecrement: this.controlSessionDecrement })), /*#__PURE__*/
+
       React.createElement(Timer, { timerStatus: this.state.timerStatus, timeLeft: this.state.timeLeft, playPauseSession: this.playPauseSession, resetSession: this.resetSession })));
 
 
@@ -118,7 +124,7 @@ class App extends React.Component {
 
 const Break = function (props) {
   return /*#__PURE__*/(
-    React.createElement("div", null, /*#__PURE__*/
+    React.createElement("div", { id: "break" }, /*#__PURE__*/
     React.createElement("div", { id: "break-label" }, "Break Length"), /*#__PURE__*/
     React.createElement("button", { id: "break-increment", onClick: props.controlBreakIncrement }, /*#__PURE__*/
     React.createElement("i", { class: "fa-solid fa-plus" })), /*#__PURE__*/
@@ -133,7 +139,7 @@ const Break = function (props) {
 
 const Session = function (props) {
   return /*#__PURE__*/(
-    React.createElement("div", null, /*#__PURE__*/
+    React.createElement("div", { id: "session" }, /*#__PURE__*/
     React.createElement("div", { id: "session-label" }, "Session Length"), /*#__PURE__*/
     React.createElement("button", { id: "session-increment", onClick: props.controlSessionIncrement }, /*#__PURE__*/
     React.createElement("i", { class: "fa-solid fa-plus" })), /*#__PURE__*/
@@ -148,14 +154,16 @@ const Session = function (props) {
 
 const Timer = function (props) {
   return /*#__PURE__*/(
-    React.createElement("div", null, /*#__PURE__*/
+    React.createElement("div", { id: "timer" }, /*#__PURE__*/
     React.createElement("div", { id: "timer-label" }, props.timerStatus), /*#__PURE__*/
     React.createElement("div", { id: "time-left" }, props.timeLeft), /*#__PURE__*/
+    React.createElement("div", { id: "play-rewind-flex" }, /*#__PURE__*/
     React.createElement("button", { id: "start_stop", onClick: props.playPauseSession }, /*#__PURE__*/
     React.createElement("i", { class: "fa-solid fa-play" })), /*#__PURE__*/
 
     React.createElement("button", { id: "reset", onClick: props.resetSession }, /*#__PURE__*/
-    React.createElement("i", { class: "fa-solid fa-arrow-rotate-left" })), /*#__PURE__*/
+    React.createElement("i", { class: "fa-solid fa-arrow-rotate-left" }))), /*#__PURE__*/
+
 
     React.createElement("audio", { id: "beep", src: "https://sampleswap.org/samples-ghost/SOUND%20EFFECTS%20and%20NOISES/Cheesy%20Lo-Fi%20Sound%20Effects/60[kb]Busyfone.wav.mp3" })));
 

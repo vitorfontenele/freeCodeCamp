@@ -67,11 +67,11 @@ class App extends React.Component{
     let breakLength = (this.state.breakLength >= 10 ? (this.state.breakLength).toString() : "0" + (this.state.breakLength).toString()) + ":00";
     let sessionLength = (this.state.sessionLength >= 10 ? (this.state.sessionLength).toString() : "0" + (this.state.sessionLength).toString()) + ":00";
     this.triggerTimeout = setTimeout(() => {
-      this.setState((state) => ({timerStatus: (state.timerStatus === "Session"? "Break" : "Session")}), () => (this.counter(true, this.state.timerStatus === "Session"? sessionLength : breakLength)))
+      this.setState((state) => ({timerStatus: (state.timerStatus === "Session"? "Break" : "Session")}), () => (this.counter(this.state.running, this.state.timerStatus === "Session"? sessionLength : breakLength)))
       }, 1000);
   }
   counter(check, timeLeft=this.state.timeLeft){
-    if (check){
+    if (check && timeLeft !== "00:00"){
       this.setState({timeLeft: timeLeft})
       this.counterTimeout = setTimeout(()=>{
         this.clickTime = (new Date()).getTime();
@@ -80,7 +80,10 @@ class App extends React.Component{
         this.msLeft = minutesLeft*60*1000 + (secondsLeft)*1000;
         this.myInterval = setInterval(this.updateCounter, 100)
       }, 1000)
-    } else {
+    } else if (check && timeLeft === "00:00"){
+      this.triggerCounter();
+    }
+    else {
       clearTimeout(this.counterTimeout)
       clearTimeout(this.triggerTimeout)
       clearInterval(this.myInterval);
@@ -108,8 +111,11 @@ class App extends React.Component{
   render(){
     return(
       <div id="clock">
-        <Break breakLength={this.state.breakLength} controlBreakIncrement={this.controlBreakIncrement} controlBreakDecrement={this.controlBreakDecrement}/>
-        <Session sessionLength={this.state.sessionLength} controlSessionIncrement={this.controlSessionIncrement} controlSessionDecrement={this.controlSessionDecrement}/>
+        <h1>25+5 Clock</h1>
+        <div id="break-session-flex">
+          <Break breakLength={this.state.breakLength} controlBreakIncrement={this.controlBreakIncrement} controlBreakDecrement={this.controlBreakDecrement}/>
+          <Session sessionLength={this.state.sessionLength} controlSessionIncrement={this.controlSessionIncrement} controlSessionDecrement={this.controlSessionDecrement}/>
+        </div>
         <Timer timerStatus={this.state.timerStatus} timeLeft={this.state.timeLeft} playPauseSession={this.playPauseSession} resetSession={this.resetSession}/>
       </div>
   )
@@ -118,7 +124,7 @@ class App extends React.Component{
 
 const Break = function(props){
   return(
-    <div>
+    <div id="break">
        <div id="break-label">Break Length</div>
        <button id="break-increment" onClick={props.controlBreakIncrement}>
          <i class="fa-solid fa-plus"></i>
@@ -133,7 +139,7 @@ const Break = function(props){
 
 const Session = function(props){
   return(
-    <div>
+    <div id="session">
         <div id="session-label">Session Length</div>
         <button id="session-increment" onClick={props.controlSessionIncrement}>
           <i class="fa-solid fa-plus"></i>
@@ -148,15 +154,17 @@ const Session = function(props){
 
 const Timer = function(props){
   return (
-    <div>
+    <div id="timer">
         <div id="timer-label">{props.timerStatus}</div>
         <div id="time-left">{props.timeLeft}</div>
-        <button id="start_stop" onClick={props.playPauseSession}>
-          <i class="fa-solid fa-play"></i>
-        </button>
-        <button id="reset" onClick={props.resetSession}>
-          <i class="fa-solid fa-arrow-rotate-left"></i>
-        </button>
+        <div id="play-rewind-flex">
+          <button id="start_stop" onClick={props.playPauseSession}>
+            <i class="fa-solid fa-play"></i>
+          </button>
+          <button id="reset" onClick={props.resetSession}>
+            <i class="fa-solid fa-arrow-rotate-left"></i>
+          </button>
+        </div>
         <audio id="beep" src="https://sampleswap.org/samples-ghost/SOUND%20EFFECTS%20and%20NOISES/Cheesy%20Lo-Fi%20Sound%20Effects/60[kb]Busyfone.wav.mp3" />
     </div>
   )

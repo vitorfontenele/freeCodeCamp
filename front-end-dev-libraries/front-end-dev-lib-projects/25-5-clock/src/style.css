@@ -1,8 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Mina&display=swap');
+
 body{
-  background-color: navy;
   color: white;
+  font-family: 'Mina', sans-serif;
+  background-image: linear-gradient(-45deg, rgba(10,10,10), rgb(10,0,40), rgb(10,10,10));
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+h1{
+  text-align: center;
 }
 
 #clock{
-  margin-left: 400px;
+  width: 300px;
+  margin: auto;
 }
+
+#time-left{
+  margin-top: 10px;
+  margin-bottom: 20px;
+  background-image: linear-gradient(-45deg, rgb(0,0,0), rgb(30,30,40), rgb(0,0,0));
+  height: 150px;
+  border-radius: 10px;
+  border-style: solid;
+  border-color: #8C4993;
+  box-shadow: 0 0 1.5rem #8C4993;
+  font-size: 5rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+button{
+  background-image: linear-gradient(-45deg, rgb(0,0,0), rgb(30,30,40), rgb(0,0,0));
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+  border-color: white;
+  border-width: .1rem;
+  box-shadow: 0 0 .25rem;
+}
+
+#break-session-flex{
+  display: flex;
+  justify-content: space-around;
+}
+
+#session, #break{
+  text-align: center;
+}
+
+#session-label, #break-label{
+  font-size: 1.25rem;
+  margin-bottom: 5px;
+}
+
+#session-increment, #break-increment{
+  margin-right: 10px;
+  margin-bottom: 5px;
+}
+
+#session-length, #break-length{
+  margin-top: 5px;
+  font-size: 1.25rem;
+}
+
+#timer-label{
+  margin-top: 5px;
+  text-align: center;
+  font-size: 2rem;
+}
+
+#play-rewind-flex{
+  display: flex;
+  justify-content: center;
+}
+
+#start_stop{
+  margin-right: 10px;
+}
+
+#timer{
+  margin-bottom: 20px;
+}
+
+@media (max-width: 500px){
+  #clock{
+    width: 250px;
+  }
+  
+  #time-left{
+    font-size: 4rem;
+    height: 125px;
+  }
+  
+  button{
+    width: 40px;
+    height: 40px;
+  }
+}
+
